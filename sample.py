@@ -4,10 +4,10 @@ import pandas as pd
 import openpyxl
 
 #Creates a new file geodatabase to store outputs in
-arcpy.CreateFileGDB_management(r"C:\Users\sshrestha\Desktop\Linear_Segmentation_AFB\Patrick AFB & Cape Canaveral\GeoCGI Data Sent\Data Summary\Electrical", "Patrick_AFB.gdb")
-output_geodatabase_location = r'C:\Users\sshrestha\Desktop\Linear_Segmentation_AFB\Patrick AFB & Cape Canaveral\GeoCGI Data Sent\Data Summary\Electrical\Patrick_AFB.gdb'
-utilitiesElectricalLocation = r'C:\Users\sshrestha\Desktop\Linear_Segmentation_AFB\Patrick AFB & Cape Canaveral\GeoCGI Data Sent\2021LinearSegPatrick\2021LinearSegPatrick\2021LinearSegPatrick\SXHT_Patrick8_13_21.gdb\utilitiesElectrical'
-dataModelLocation = r'C:\Users\sshrestha\Desktop\311_AFIMSCDet2_shell.gdb\311_AFIMSCDet2_shell.gdb\311_AFIMSCDet2_shell.gdb\utilitiesElectrical'
+arcpy.CreateFileGDB_management(filepath, basegeodatabase)
+output_geodatabase_location = filepath
+utilitiesElectricalLocation = filepath_to_electrical'
+dataModelLocation = filepath_to_datamodel'
 
 #For an accurate summary report, this function updates all feature classes in the UtilitiesElectrical feature
 #dataset for cells with an empty(blank) value. It updates all blank cells to a NULL value.
@@ -46,7 +46,7 @@ def exportMissingFCTableList():
         if item not in dataSentfcList:
             list_difference.append(item)
 
-    targetFile = r"C:\Users\sshrestha\Desktop\Linear_Segmentation_AFB\Patrick AFB & Cape Canaveral\GeoCGI Data Sent\Data Summary\Electrical\Missing_FeatureClasses_Compared_to_SDSFIE3_1_Data_Model.xlsx"
+    targetFile = filepath_to_targetfile_location"
     wb = openpyxl.Workbook()
     wb.save(targetFile)
     writer = pd.ExcelWriter(targetFile)
