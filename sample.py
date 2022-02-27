@@ -9,6 +9,7 @@ output_geodatabase_location = filepath
 utilitiesElectricalLocation = filepath_to_electrical'
 dataModelLocation = filepath_to_datamodel'
 
+       
 #For an accurate summary report, this function updates all feature classes in the UtilitiesElectrical feature
 #dataset for cells with an empty(blank) value. It updates all blank cells to a NULL value.
 def convertToNull():
@@ -56,3 +57,10 @@ def exportMissingFCTableList():
     #del df
     writer.save()
     print("Missing feature class list exported to Excel")
+    
+def main():
+    convertToNull()
+    exportMissingFCTableList()
+
+if __name__ == "__main__":
+    main() 
